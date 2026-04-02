@@ -1,0 +1,11 @@
+target/
+reports/
+screenshots/
+test-output/
+*.log
+.idea/
+.project
+.classpath
+.settings/
+bin/
+node_modules/
