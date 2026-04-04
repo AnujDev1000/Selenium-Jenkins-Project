@@ -24,5 +24,19 @@ pipeline {
                 }
             }
         }
+        stage('check maven') {
+            steps {
+                bat 'mvn -version'
+                bat 'echo MAVEN_HOME=%MAVEN_HOME%'
+                bat 'where mvn'
+            }
+        }
+        stage('check JDK') {
+            steps {
+                bat 'java --version'
+                bat 'echo JAVA_HOME=%JAVA_HOME%'
+                bat 'where java'
+            }
+        }
     }
 }
