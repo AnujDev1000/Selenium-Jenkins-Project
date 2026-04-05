@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 
 public class NewCustomerPage {
     WebDriver driver;
@@ -50,7 +53,8 @@ public class NewCustomerPage {
     }
 
     public String getSuccessMessage() {
-        waitFor(driver.findElement(By.xpath("//p[@class='heading3']")).isDisplayed(), 10); // Wait for the success message to be visible
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='heading3']")));
         return driver.findElement(By.xpath("//p[@class='heading3']")).getText();
     }
 }

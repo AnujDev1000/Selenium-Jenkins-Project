@@ -21,6 +21,7 @@ public class NewCustomerTest extends BaseTest {
 
         NewCustomerPage newCustomerPage = new NewCustomerPage(getDriver());
         newCustomerPage.navigateToNewCustomer();
+        ExtentTestManager.getTest().info("Navigated to new customer page");
 
         String email = "test" + System.currentTimeMillis() + "@example.com";
         newCustomerPage.fillCustomerForm(
@@ -35,6 +36,7 @@ public class NewCustomerTest extends BaseTest {
             "pass123"
         );
         newCustomerPage.submitForm();
+        ExtentTestManager.getTest().info("Submitted customer form");
 
         String successMessage = newCustomerPage.getSuccessMessage();
         assert successMessage.contains("Customer Registered Successfully!!!") : "Customer creation failed.";

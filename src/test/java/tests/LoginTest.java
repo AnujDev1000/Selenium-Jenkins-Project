@@ -20,7 +20,7 @@ public class LoginTest extends BaseTest{
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.login(config.getUsername(), config.getPassword());
         Assert.assertTrue(getDriver().getTitle().contains("Guru99 Bank Manager HomePage"), "Login failed or incorrect page title.");
-        ExtentTestManager.getTest().info("Logged in successfully with username: " + config.getUsername());
+        ExtentTestManager.getTest().pass("Logged in successfully with username: " + config.getUsername());
 
     }
 }
