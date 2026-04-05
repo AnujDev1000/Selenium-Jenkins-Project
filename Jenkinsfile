@@ -6,6 +6,11 @@ pipeline {
         jdk 'JAVA_HOME'
     }
 
+    parameter {
+        // choice(name: 'ENVIRONMENT', choices: ['QA', 'Staging', 'Production'], description: 'Select the environment to run tests against')
+        choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Select the browser to run tests on')
+    }
+
     stages {
         stage('checkout') {
             steps {
@@ -38,9 +43,24 @@ pipeline {
                 bat 'where java'
             }
         }
-        stage('build with maven') {
+        // stage('check environment') {
+        //     steps {
+        //         echo "Running tests against environment: ${params.ENVIRONMENT}"
+        //     }
+        // }
+        stage('check browser') {
             steps {
-                bat 'mvn clean test'
+                echo "Running tests on browser: ${params.BROWSER}"
+            }
+        }
+        stage('build') {
+            steps {
+                bat 'mvn clean compile'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                bat 'mvn test -Dbrowser=${params.BROWSER}'
             }
         }
 
