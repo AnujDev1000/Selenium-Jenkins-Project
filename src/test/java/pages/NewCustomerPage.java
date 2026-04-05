@@ -50,6 +50,7 @@ public class NewCustomerPage {
     }
 
     public String getSuccessMessage() {
+        waitFor(driver.findElement(By.xpath("//p[@class='heading3']")).isDisplayed(), 10); // Wait for the success message to be visible
         return driver.findElement(By.xpath("//p[@class='heading3']")).getText();
     }
 }
