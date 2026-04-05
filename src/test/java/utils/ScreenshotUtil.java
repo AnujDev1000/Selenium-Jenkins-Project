@@ -13,9 +13,9 @@ public class ScreenshotUtil {
     public static String captureScreenshot(String testName) {
         WebDriver driver = BaseTest.getDriver();
 
-        String path = System.getProperty("user.dir") + "/target/screenshots/" + testName + ".png";
+        String path = "screenshots/" + testName + ".png";
         try {
-            File file = new File(path);
+            File file = new File("target/" + path);
             file.getParentFile().mkdirs();
 
             TakesScreenshot ts = (TakesScreenshot) driver;
