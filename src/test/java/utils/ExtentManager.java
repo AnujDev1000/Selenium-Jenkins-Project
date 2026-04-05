@@ -7,7 +7,7 @@ public class ExtentManager {
     public static ExtentReports extent;
     public static ExtentReports getInstance() {
         if (extent == null) {
-            ExtentSparkReporter spark = new ExtentSparkReporter("target/Extent-Reports/index.html");
+            ExtentSparkReporter spark = new ExtentSparkReporter("target/extent-report.html");
             spark.config().setReportName("Selenium Jenkins Project - Test Report");
             spark.config().setDocumentTitle("Test Results");
             spark.config().setOfflineMode(true);
