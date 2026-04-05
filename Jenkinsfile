@@ -51,7 +51,7 @@ pipeline {
             junit '**/target/surefire-reports/*.xml'
             publishHTML ([
                 reportName: 'Extent Report',
-                reportDir: 'target/Extent-Reports',
+                reportDir: 'target',
                 reportFiles: 'index.html',
                 keepAll: true,
                 allowMissing: false,
