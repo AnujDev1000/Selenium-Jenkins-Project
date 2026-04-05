@@ -12,9 +12,12 @@ public class ExtentManager {
             spark.config().setDocumentTitle("Test Results");
             spark.config().setOfflineMode(true);
             spark.config().setTheme(com.aventstack.extentreports.reporter.configuration.Theme.DARK);
+            spark.config().setEncoding("utf-8");
 
             extent = new ExtentReports();
             extent.attachReporter(spark);
+            extent.setSystemInfo("Environment", "QA");
+            extent.setSystemInfo("User", "Jenkins");
         }
         return extent;
     }

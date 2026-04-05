@@ -53,7 +53,6 @@ pipeline {
                 reportName: 'Extent Report',
                 reportDir: 'target',
                 reportFiles: 'extent-report.html',
-                includes: 'screenshots/**,spark/**',
                 keepAll: true,
                 allowMissing: false,
                 alwaysLinkToLastBuild: true

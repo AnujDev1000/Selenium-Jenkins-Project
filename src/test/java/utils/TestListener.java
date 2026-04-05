@@ -19,8 +19,9 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSuccess(ITestResult result) {
+        ExtentTestManager.getTest().pass("Test passed");
         String path = ScreenshotUtil.captureScreenshot(result.getName());
-        
+
         try {
             ExtentTestManager.getTest().addScreenCaptureFromPath(path);
         } catch (Exception e) {
@@ -29,14 +30,22 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestFailure(ITestResult result) {
+        ExtentTestManager.getTest().fail(result.getThrowable());
         String screenshotPath = ScreenshotUtil.captureScreenshot(result.getName());
 
-        ExtentTestManager.getTest().fail(result.getThrowable());
         try {
             ExtentTestManager.getTest().addScreenCaptureFromPath(screenshotPath);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void onTestSkipped(ITestResult result) {
+        ExtentTestManager.getTest().skip("Test skipped");
+    }
+
+    public void onStart(ITestContext context) {
+        // Initialize if needed
     }
 
     public void onFinish(ITestContext context) {
