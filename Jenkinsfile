@@ -48,7 +48,15 @@ pipeline {
     
     post {
         always {
-            archiveArtifacts artifacts: '**/target/**', fingerprint: true
+            junit '**/target/surefire-reports/*.xml'
+            publishHTML ([
+                reportName: 'Surefire Report',
+                reportDir: 'target/surefire-reports',
+                reportFiles: 'index.html',
+                keepAll: true,
+                allowMissing: false,
+                alwaysLinkToLastBuild: true
+            ])
         }
     }
 }
