@@ -50,9 +50,9 @@ pipeline {
         always {
             junit '**/target/surefire-reports/*.xml'
             publishHTML ([
-                reportName: 'Surefire Report',
-                reportDir: 'target/surefire-reports',
-                reportFiles: 'index.html',
+                reportName: 'Extent Report',
+                reportDir: 'target',
+                reportFiles: 'extent-report.html',
                 keepAll: true,
                 allowMissing: false,
                 alwaysLinkToLastBuild: true
