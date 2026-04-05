@@ -52,7 +52,7 @@ pipeline {
             publishHTML ([
                 reportName: 'Extent Report',
                 reportDir: 'target',
-                reportFiles: 'index.html',
+                reportFiles: 'target/Extent-Reports/index.html',
                 keepAll: true,
                 allowMissing: false,
                 alwaysLinkToLastBuild: true
