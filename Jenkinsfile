@@ -6,7 +6,7 @@ pipeline {
         jdk 'JAVA_HOME'
     }
 
-    parameter {
+    parameters {
         // choice(name: 'ENVIRONMENT', choices: ['QA', 'Staging', 'Production'], description: 'Select the environment to run tests against')
         choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Select the browser to run tests on')
     }
