@@ -38,5 +38,16 @@ pipeline {
                 bat 'where java'
             }
         }
+        stage('build with maven') {
+            steps {
+                bat 'mvn clean test'
+            }
+        }
+
+    }
+    post('archive artifacts') {
+        steps {
+            archiveArtifacts artifacts: '**/target/**', fingerprint: true
+        }
     }
 }
