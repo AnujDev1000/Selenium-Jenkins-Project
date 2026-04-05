@@ -45,8 +45,9 @@ pipeline {
         }
 
     }
-    post('archive artifacts') {
-        steps {
+    
+    post {
+        always {
             archiveArtifacts artifacts: '**/target/**', fingerprint: true
         }
     }
